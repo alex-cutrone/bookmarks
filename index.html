@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Spaces</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --border-hover: #444;
+      --text: #e8e8e8;
+      --muted: #666;
+      --accent: #c8f060;
+      --accent-dim: rgba(200, 240, 96, 0.08);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+    }
+
+    .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    a.link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.15s, background 0.15s;
+      gap: 1rem;
+    }
+
+    a.link-card:hover {
+      border-color: var(--border-hover);
+      background: var(--accent-dim);
+    }
+
+    a.link-card:hover .arrow {
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    .link-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .link-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .link-url {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .arrow {
+      font-size: 1rem;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: color 0.15s, transform 0.15s;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="label">Encore Pro</div>
+      <h1>Admin Spaces</h1>
+    </header>
+
+    <div class="links">
+      <a class="link-card" href="https://app.crowdengage.com/admin/" target="_blank" rel="noopener">
+        <div class="link-info">
+          <span class="link-name">crowdEngage</span>
+          <span class="link-url">app.crowdengage.com/admin/</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://provisioning.encorepro.com/admin/" target="_blank" rel="noopener">
+        <div class="link-info">
+          <span class="link-name">Provisioning</span>
+          <span class="link-url">provisioning.encorepro.com/admin/</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://us1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
+        <div class="link-info">
+          <span class="link-name">Encore Pro — US</span>
+          <span class="link-url">us1.admin.encorepro.com/admin/</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://eu1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
+        <div class="link-info">
+          <span class="link-name">Encore Pro — EU</span>
+          <span class="link-url">eu1.admin.encorepro.com/admin/</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <footer>// admin quick-access</footer>
+  </div>
+</body>
+</html>
