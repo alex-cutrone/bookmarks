@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  <meta charset="UTF-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Spaces — Encore Pro</title>
+  <title>Resources — Encore Pro</title>
   <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     :root {
       --green:       #212E1D;
       --green-mid:   #374931;
@@ -21,34 +20,34 @@
       --text:        #212E1D;
       --muted:       #708A67;
     }
-
+ 
     body {
       background: var(--cream);
       color: var(--text);
       font-family: 'Albert Sans', sans-serif;
       min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 3rem 2rem;
     }
-
+ 
     .container {
       width: 100%;
-      max-width: 480px;
+      max-width: 520px;
     }
-
-    header {
-      margin-bottom: 2rem;
+ 
+    /* ── Page header ── */
+    .page-header {
+      margin-bottom: 2.5rem;
     }
-
+ 
     .wordmark {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       margin-bottom: 1rem;
     }
-
+ 
     .diamond-mark {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -57,14 +56,14 @@
       height: 16px;
       flex-shrink: 0;
     }
-
+ 
     .diamond-mark span {
       display: block;
       background: var(--gold);
       transform: rotate(45deg);
       border-radius: 1px;
     }
-
+ 
     .brand-name {
       font-family: 'Albert Sans', sans-serif;
       font-size: 0.8rem;
@@ -73,85 +72,129 @@
       color: var(--green);
       text-transform: uppercase;
     }
-
+ 
     h1 {
       font-family: 'Nanum Myeongjo', serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 400;
       color: var(--green);
       letter-spacing: -0.01em;
       line-height: 1.2;
     }
-
-    .divider {
-      width: 100%;
+ 
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 2.25rem;
+    }
+ 
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+ 
+    .section-title {
+      font-family: 'Albert Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+ 
+    .section-rule {
+      flex: 1;
       height: 1px;
       background: var(--cream-dark);
-      margin: 1.5rem 0;
     }
-
+ 
+    /* ── Link cards ── */
     .links {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
-
+ 
     a.link-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.25rem;
+      padding: 0.85rem 1.1rem;
       background: white;
       border: 1px solid var(--cream-dark);
       border-radius: 4px;
       text-decoration: none;
       color: var(--text);
       transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
-      gap: 1rem;
+      gap: 0.75rem;
     }
-
+ 
     a.link-card:hover {
       border-color: var(--gold);
       background: var(--gold-dim);
       box-shadow: 0 2px 8px rgba(33, 46, 29, 0.06);
     }
-
+ 
     a.link-card:hover .arrow {
       color: var(--gold);
       transform: translateX(3px);
     }
-
+ 
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: 0;
+    }
+ 
+    .favicon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      border-radius: 2px;
+      object-fit: contain;
+    }
+ 
+    .favicon-placeholder {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      border-radius: 2px;
+      background: var(--cream-dark);
+    }
+ 
     .link-info {
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
+      gap: 0.15rem;
       min-width: 0;
     }
-
+ 
     .link-name {
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 600;
       color: var(--green);
     }
-
+ 
     .link-url {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
+ 
     .arrow {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--cream-dark);
       flex-shrink: 0;
       transition: color 0.15s, transform 0.15s;
     }
-
+ 
     footer {
-      margin-top: 2rem;
-      font-size: 0.7rem;
+      margin-top: 1rem;
+      font-size: 0.68rem;
       color: var(--muted);
       letter-spacing: 0.03em;
     }
@@ -159,53 +202,195 @@
 </head>
 <body>
   <div class="container">
-    <header>
+ 
+    <div class="page-header">
       <div class="wordmark">
         <div class="diamond-mark">
           <span></span><span></span><span></span><span></span>
         </div>
         <span class="brand-name">Encore Pro</span>
       </div>
-      <h1>Admin Spaces</h1>
-    </header>
-
-    <div class="divider"></div>
-
-    <div class="links">
-      <a class="link-card" href="https://app.crowdengage.com/admin/" target="_blank" rel="noopener">
-        <div class="link-info">
-          <span class="link-name">crowdEngage</span>
-          <span class="link-url">app.crowdengage.com/admin/</span>
-        </div>
-        <span class="arrow">→</span>
-      </a>
-
-      <a class="link-card" href="https://provisioning.encorepro.com/admin/" target="_blank" rel="noopener">
-        <div class="link-info">
-          <span class="link-name">Provisioning</span>
-          <span class="link-url">provisioning.encorepro.com/admin/</span>
-        </div>
-        <span class="arrow">→</span>
-      </a>
-
-      <a class="link-card" href="https://us1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
-        <div class="link-info">
-          <span class="link-name">Encore Pro — US</span>
-          <span class="link-url">us1.admin.encorepro.com/admin/</span>
-        </div>
-        <span class="arrow">→</span>
-      </a>
-
-      <a class="link-card" href="https://eu1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
-        <div class="link-info">
-          <span class="link-name">Encore Pro — EU</span>
-          <span class="link-url">eu1.admin.encorepro.com/admin/</span>
-        </div>
-        <span class="arrow">→</span>
-      </a>
+      <h1>Resources</h1>
     </div>
-
+ 
+    <!-- ADMIN SPACES -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Admin Spaces</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="links">
+ 
+        <a class="link-card" href="https://eu.exchange.activitystream.com/admin" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://eu.exchange.activitystream.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Exchange</span>
+              <span class="link-url">eu.exchange.activitystream.com/admin</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://app.crowdengage.com/admin/" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://app.crowdengage.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">crowdEngage</span>
+              <span class="link-url">app.crowdengage.com/admin/</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://provisioning.encorepro.com/admin/" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://provisioning.encorepro.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Provisioning</span>
+              <span class="link-url">provisioning.encorepro.com/admin/</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://us1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://us1.admin.encorepro.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Encore Pro — US</span>
+              <span class="link-url">us1.admin.encorepro.com/admin/</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://eu1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://eu1.admin.encorepro.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Encore Pro — EU</span>
+              <span class="link-url">eu1.admin.encorepro.com/admin/</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+      </div>
+    </div>
+ 
+    <!-- PLATFORM TOOLS -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Platform Tools</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="links">
+ 
+        <a class="link-card" href="https://app.propelauth.com/proj/bbd74220-c424-4338-a528-33d0fb68be49" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://app.propelauth.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">PropelAuth</span>
+              <span class="link-url">app.propelauth.com</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://app.eu.sparkpost.com/landing" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://app.eu.sparkpost.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">SparkPost</span>
+              <span class="link-url">app.eu.sparkpost.com</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://github.com/crowdengage/operations-tasks/issues/new/choose" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://github.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Operations Tasks</span>
+              <span class="link-url">github.com/crowdengage/operations-tasks</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://console.twilio.com/" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://console.twilio.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Twilio</span>
+              <span class="link-url">console.twilio.com</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://manage.auth0.com/dashboard/eu/activitystream-v2/" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://manage.auth0.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Auth0</span>
+              <span class="link-url">manage.auth0.com — activitystream-v2</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+      </div>
+    </div>
+ 
+    <!-- TENANTS -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Tenants</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="links">
+ 
+        <a class="link-card" href="https://app.encorepro.com/" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://app.encorepro.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Encore Pro</span>
+              <span class="link-url">app.encorepro.com</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://app.crowdengage.com/" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://app.crowdengage.com/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">crowdEngage</span>
+              <span class="link-url">app.crowdengage.com</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+        <a class="link-card" href="https://as.yesplan.be/Yesplan?_s=bdH7s4rIcEzgJMc4&_k=bduMLRrbeVqVfoLT" target="_blank" rel="noopener">
+          <div class="link-left">
+            <img class="favicon" src="https://as.yesplan.be/favicon.ico" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'favicon-placeholder'}))" alt="">
+            <div class="link-info">
+              <span class="link-name">Yesplan</span>
+              <span class="link-url">as.yesplan.be</span>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+ 
+      </div>
+    </div>
+ 
     <footer>Internal use only</footer>
+ 
   </div>
 </body>
 </html>
