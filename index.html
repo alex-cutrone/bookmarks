@@ -1,7 +1,7 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resources — Encore Pro</title>
@@ -47,20 +47,11 @@
       margin-bottom: 1rem;
     }
 
-    .diamond-mark {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
-      width: 16px;
-      height: 16px;
+    .logo {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
       flex-shrink: 0;
-    }
-
-    .diamond-mark span {
-      display: block;
-      background: var(--gold);
-      transform: rotate(45deg);
-      border-radius: 1px;
     }
 
     .brand-name {
@@ -234,13 +225,13 @@
 
     <div class="page-header">
       <div class="wordmark">
-        <div class="diamond-mark">
-          <span></span><span></span><span></span><span></span>
-        </div>
+        <img src="logo.jpg" alt="Encore Pro" class="logo">
         <span class="brand-name">Encore Pro</span>
       </div>
       <h1>Resources</h1>
     </div>
+
+    <div class="page-divider"></div>
 
     <div class="sections-grid">
 
@@ -339,17 +330,6 @@
             </div>
             <span class="arrow">→</span>
           </a>
-           
-          <a class="link-card" href="https://console.twilio.com/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="https://console.twilio.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
-              <div class="link-info">
-                <span class="link-name">Twilio</span>
-                <span class="link-url">console.twilio.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
 
           <a class="link-card" href="https://github.com/crowdengage/operations-tasks/issues/new/choose" target="_blank" rel="noopener">
             <div class="link-left">
@@ -357,6 +337,17 @@
               <div class="link-info">
                 <span class="link-name">Operations Tasks</span>
                 <span class="link-url">github.com/crowdengage</span>
+              </div>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+
+          <a class="link-card" href="https://console.twilio.com/" target="_blank" rel="noopener">
+            <div class="link-left">
+              <img class="favicon" src="https://console.twilio.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <div class="link-info">
+                <span class="link-name">Twilio</span>
+                <span class="link-url">console.twilio.com</span>
               </div>
             </div>
             <span class="arrow">→</span>
