@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resources — Encore Pro</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,6 +47,7 @@
     .page-header-left {
       display: flex;
       flex-direction: column;
+      flex-shrink: 0;
     }
 
     .wordmark {
@@ -80,18 +82,18 @@
       line-height: 1.2;
     }
 
-    /* ── Quick links ── */
+    /* ── Quick links — single row, no wrapping ── */
     .quick-links {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 0.4rem;
-      justify-content: flex-end;
       align-items: flex-start;
       padding-top: 0.1rem;
-      max-width: 280px;
+      flex-shrink: 0;
     }
 
     .quick-link {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -117,34 +119,29 @@
       height: 22px;
       object-fit: contain;
       display: block;
-      border-radius: 4px;
+      border-radius: 3px;
     }
 
-    .quick-link[title]:hover::after {
+    /* Tooltip */
+    .quick-link::after {
       content: attr(title);
       position: absolute;
-      bottom: -26px;
+      bottom: -28px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--green);
       color: var(--cream);
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       padding: 2px 6px;
       border-radius: 3px;
       white-space: nowrap;
       pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
     }
 
-    .quick-link {
-      position: relative;
-    }
-
-    /* ── Divider ── */
-    .page-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--cream-dark);
-      margin-bottom: 2rem;
+    .quick-link:hover::after {
+      opacity: 1;
     }
 
     /* ── Responsive grid ── */
@@ -287,6 +284,7 @@
 <body>
   <div class="container">
 
+    <!-- PAGE HEADER -->
     <div class="page-header">
       <div class="page-header-left">
         <div class="wordmark">
@@ -296,9 +294,8 @@
         <h1>Resources</h1>
       </div>
 
-      <!-- Quick-link icon bar -->
+      <!-- Quick-link icon bar — single row -->
       <div class="quick-links">
-
         <a class="quick-link" href="https://www.gmail.com" target="_blank" rel="noopener" title="Gmail">
           <img src="gmail.jpeg" alt="Gmail">
         </a>
@@ -323,12 +320,10 @@
         <a class="quick-link" href="https://www.loom.com/looms" target="_blank" rel="noopener" title="Loom">
           <img src="loom.jpeg" alt="Loom">
         </a>
-
       </div>
     </div>
 
-    <div class="page-divider"></div>
-
+    <!-- SECTIONS GRID -->
     <div class="sections-grid">
 
       <!-- ADMIN SPACES -->
