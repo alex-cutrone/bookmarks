@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resources — Encore Pro</title>
@@ -37,14 +36,23 @@
 
     /* ── Page header ── */
     .page-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
       margin-bottom: 2.5rem;
+    }
+
+    .page-header-left {
+      display: flex;
+      flex-direction: column;
     }
 
     .wordmark {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .logo {
@@ -72,6 +80,66 @@
       line-height: 1.2;
     }
 
+    /* ── Quick links ── */
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-top: 0.1rem;
+      max-width: 280px;
+    }
+
+    .quick-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      border: 1px solid var(--cream-dark);
+      background: white;
+      text-decoration: none;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .quick-link:hover {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+      box-shadow: 0 2px 6px rgba(33,46,29,0.08);
+    }
+
+    .quick-link img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .quick-link[title]:hover::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -26px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: var(--cream);
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .quick-link {
+      position: relative;
+    }
+
+    /* ── Divider ── */
     .page-divider {
       width: 100%;
       height: 1px;
@@ -97,7 +165,6 @@
     .section {
       display: flex;
       flex-direction: column;
-      gap: 0;
     }
 
     .section-header {
@@ -108,7 +175,6 @@
     }
 
     .section-title {
-      font-family: 'Albert Sans', sans-serif;
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -162,7 +228,6 @@
       min-width: 0;
     }
 
-    /* favicon image */
     .favicon {
       width: 15px;
       height: 15px;
@@ -171,7 +236,6 @@
       object-fit: contain;
     }
 
-    /* ✦ fallback */
     .favicon-fallback {
       width: 15px;
       height: 15px;
@@ -224,12 +288,46 @@
   <div class="container">
 
     <div class="page-header">
-      <div class="wordmark">
-        <img src="logo.png" alt="Encore Pro" class="logo">
-        <span class="brand-name">Encore Pro</span>
+      <div class="page-header-left">
+        <div class="wordmark">
+          <img src="logo.jpg" alt="Encore Pro" class="logo">
+          <span class="brand-name">Encore Pro</span>
+        </div>
+        <h1>Resources</h1>
       </div>
-      <h1>Resources</h1>
+
+      <!-- Quick-link icon bar -->
+      <div class="quick-links">
+
+        <a class="quick-link" href="https://www.gmail.com" target="_blank" rel="noopener" title="Gmail">
+          <img src="gmail.jpeg" alt="Gmail">
+        </a>
+        <a class="quick-link" href="https://calendar.google.com/" target="_blank" rel="noopener" title="Google Calendar">
+          <img src="calendar.png" alt="Google Calendar">
+        </a>
+        <a class="quick-link" href="https://drive.google.com/" target="_blank" rel="noopener" title="Google Drive">
+          <img src="drive.png" alt="Google Drive">
+        </a>
+        <a class="quick-link" href="https://app-eu1.hubspot.com/" target="_blank" rel="noopener" title="HubSpot">
+          <img src="hubspot.jpeg" alt="HubSpot">
+        </a>
+        <a class="quick-link" href="https://app.asana.com/" target="_blank" rel="noopener" title="Asana">
+          <img src="asana.jpeg" alt="Asana">
+        </a>
+        <a class="quick-link" href="https://app.sunsama.com/" target="_blank" rel="noopener" title="Sunsama">
+          <img src="sunsama.jpeg" alt="Sunsama">
+        </a>
+        <a class="quick-link" href="https://youneedawiki.com/app/page/1rChtI49cKKO5KEo2XQJO7TuHUU5Q4BTH?p=1rChtI49cKKO5KEo2XQJO7TuHUU5Q4BTH" target="_blank" rel="noopener" title="You Need a Wiki">
+          <img src="YNAW.png" alt="You Need a Wiki">
+        </a>
+        <a class="quick-link" href="https://www.loom.com/looms" target="_blank" rel="noopener" title="Loom">
+          <img src="loom.jpeg" alt="Loom">
+        </a>
+
+      </div>
     </div>
+
+    <div class="page-divider"></div>
 
     <div class="sections-grid">
 
@@ -243,7 +341,7 @@
 
           <a class="link-card" href="https://eu.exchange.activitystream.com/admin" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://eu.exchange.activitystream.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://eu.exchange.activitystream.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Exchange</span>
                 <span class="link-url">eu.exchange.activitystream.com</span>
@@ -254,7 +352,7 @@
 
           <a class="link-card" href="https://app.crowdengage.com/admin/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://app.crowdengage.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://app.crowdengage.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">crowdEngage</span>
                 <span class="link-url">app.crowdengage.com/admin/</span>
@@ -265,7 +363,7 @@
 
           <a class="link-card" href="https://provisioning.encorepro.com/admin/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://provisioning.encorepro.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://provisioning.encorepro.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Provisioning</span>
                 <span class="link-url">provisioning.encorepro.com</span>
@@ -276,7 +374,7 @@
 
           <a class="link-card" href="https://us1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://us1.admin.encorepro.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://us1.admin.encorepro.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Encore Pro — US</span>
                 <span class="link-url">us1.admin.encorepro.com</span>
@@ -287,7 +385,7 @@
 
           <a class="link-card" href="https://eu1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://eu1.admin.encorepro.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://eu1.admin.encorepro.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Encore Pro — EU</span>
                 <span class="link-url">eu1.admin.encorepro.com</span>
@@ -309,7 +407,7 @@
 
           <a class="link-card" href="https://app.propelauth.com/proj/bbd74220-c424-4338-a528-33d0fb68be49" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://app.propelauth.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://app.propelauth.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">PropelAuth</span>
                 <span class="link-url">app.propelauth.com</span>
@@ -320,7 +418,7 @@
 
           <a class="link-card" href="https://app.eu.sparkpost.com/landing" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://app.eu.sparkpost.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://app.eu.sparkpost.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">SparkPost</span>
                 <span class="link-url">app.eu.sparkpost.com</span>
@@ -331,7 +429,7 @@
 
           <a class="link-card" href="https://github.com/crowdengage/operations-tasks/issues/new/choose" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://github.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://github.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Operations Tasks</span>
                 <span class="link-url">github.com/crowdengage</span>
@@ -342,7 +440,7 @@
 
           <a class="link-card" href="https://console.twilio.com/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://console.twilio.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://console.twilio.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Twilio</span>
                 <span class="link-url">console.twilio.com</span>
@@ -353,7 +451,7 @@
 
           <a class="link-card" href="https://manage.auth0.com/dashboard/eu/activitystream-v2/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://manage.auth0.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://manage.auth0.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Auth0</span>
                 <span class="link-url">manage.auth0.com</span>
@@ -375,7 +473,7 @@
 
           <a class="link-card" href="https://app.encorepro.com/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://app.encorepro.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://app.encorepro.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Encore Pro</span>
                 <span class="link-url">app.encorepro.com</span>
@@ -386,7 +484,7 @@
 
           <a class="link-card" href="https://app.crowdengage.com/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://app.crowdengage.com/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://app.crowdengage.com/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">crowdEngage</span>
                 <span class="link-url">app.crowdengage.com</span>
@@ -397,7 +495,7 @@
 
           <a class="link-card" href="https://as.yesplan.be/Yesplan?_s=bdH7s4rIcEzgJMc4&_k=bduMLRrbeVqVfoLT" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://as.yesplan.be/favicon.ico" onerror="this.outerHTML='<span class=\'favicon-fallback\'>✦</span>'" alt="">
+              <img class="favicon" src="https://as.yesplan.be/favicon.ico" alt="">
               <div class="link-info">
                 <span class="link-name">Yesplan</span>
                 <span class="link-url">as.yesplan.be</span>
@@ -416,14 +514,12 @@
   </div>
 
   <script>
-    // Use Google's favicon service as a more reliable fallback before showing ✦
     document.querySelectorAll('img.favicon').forEach(img => {
-      const original = img.src;
-      const domain = new URL(original).hostname;
-      img.addEventListener('error', function onFirstError() {
-        img.removeEventListener('error', onFirstError);
+      const domain = new URL(img.src).hostname;
+      img.addEventListener('error', function onFirst() {
+        img.removeEventListener('error', onFirst);
         img.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
-        img.addEventListener('error', function onSecondError() {
+        img.addEventListener('error', function onSecond() {
           img.outerHTML = '<span class="favicon-fallback">✦</span>';
         });
       });
