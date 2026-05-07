@@ -347,7 +347,7 @@
 
           <a class="link-card" href="https://app.crowdengage.com/admin/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://app.crowdengage.com/favicon.ico" alt="">
+              <img class="favicon" src="crowdengage.jpeg" alt="">
               <div class="link-info">
                 <span class="link-name">crowdEngage</span>
                 <span class="link-url">app.crowdengage.com/admin/</span>
@@ -358,7 +358,7 @@
 
           <a class="link-card" href="https://provisioning.encorepro.com/admin/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://provisioning.encorepro.com/favicon.ico" alt="">
+              <span class="favicon-fallback">✦</span>
               <div class="link-info">
                 <span class="link-name">Provisioning</span>
                 <span class="link-url">provisioning.encorepro.com</span>
@@ -369,7 +369,7 @@
 
           <a class="link-card" href="https://us1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://us1.admin.encorepro.com/favicon.ico" alt="">
+              <span class="favicon-fallback">✦</span>
               <div class="link-info">
                 <span class="link-name">Encore Pro — US</span>
                 <span class="link-url">us1.admin.encorepro.com</span>
@@ -380,7 +380,7 @@
 
           <a class="link-card" href="https://eu1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://eu1.admin.encorepro.com/favicon.ico" alt="">
+              <span class="favicon-fallback">✦</span>
               <div class="link-info">
                 <span class="link-name">Encore Pro — EU</span>
                 <span class="link-url">eu1.admin.encorepro.com</span>
@@ -402,7 +402,7 @@
 
           <a class="link-card" href="https://app.propelauth.com/proj/bbd74220-c424-4338-a528-33d0fb68be49" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://app.propelauth.com/favicon.ico" alt="">
+              <img class="favicon" src="propel.jpeg" alt="">
               <div class="link-info">
                 <span class="link-name">PropelAuth</span>
                 <span class="link-url">app.propelauth.com</span>
@@ -446,7 +446,7 @@
 
           <a class="link-card" href="https://manage.auth0.com/dashboard/eu/activitystream-v2/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://manage.auth0.com/favicon.ico" alt="">
+              <img class="favicon" src="Auth.png" alt="">
               <div class="link-info">
                 <span class="link-name">Auth0</span>
                 <span class="link-url">manage.auth0.com</span>
@@ -479,7 +479,7 @@
 
           <a class="link-card" href="https://app.crowdengage.com/" target="_blank" rel="noopener">
             <div class="link-left">
-              <img class="favicon" src="https://app.crowdengage.com/favicon.ico" alt="">
+              <img class="favicon" src="crowdengage.jpeg" alt="">
               <div class="link-info">
                 <span class="link-name">crowdEngage</span>
                 <span class="link-url">app.crowdengage.com</span>
@@ -509,20 +509,36 @@
   </div>
 
   <script>
+    function replaceWithDiamond(img) {
+      const span = document.createElement("span");
+      span.className = "favicon-fallback";
+      span.textContent = "✦";
+      if (img.parentNode) img.parentNode.replaceChild(span, img);
+    }
+
+    function isGenericGlobe(img) {
+      // Google returns a 16x16 grey globe for unknown domains — detect by tiny natural size
+      return img.naturalWidth <= 16 && img.naturalHeight <= 16 && img.naturalWidth > 0;
+    }
+
     document.querySelectorAll("img.favicon").forEach(img => {
-      let attempts = 0;
+      let usedGoogle = false;
       let domain;
       try { domain = new URL(img.src).hostname; } catch(e) { return; }
+
       img.onerror = function() {
-        attempts++;
-        if (attempts === 1) {
+        if (!usedGoogle) {
+          usedGoogle = true;
           img.src = "https://www.google.com/s2/favicons?domain=" + domain + "&sz=32";
         } else {
           img.onerror = null;
-          const span = document.createElement("span");
-          span.className = "favicon-fallback";
-          span.textContent = "✦";
-          img.parentNode.replaceChild(span, img);
+          replaceWithDiamond(img);
+        }
+      };
+
+      img.onload = function() {
+        if (usedGoogle && isGenericGlobe(img)) {
+          replaceWithDiamond(img);
         }
       };
     });
