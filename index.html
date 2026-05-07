@@ -288,7 +288,7 @@
     <div class="page-header">
       <div class="page-header-left">
         <div class="wordmark">
-          <img src="logo.jpg" alt="Encore Pro" class="logo">
+          <img src="logo.png" alt="Encore Pro" class="logo">
           <span class="brand-name">Encore Pro</span>
         </div>
         <h1>Resources</h1>
@@ -509,15 +509,22 @@
   </div>
 
   <script>
-    document.querySelectorAll('img.favicon').forEach(img => {
-      const domain = new URL(img.src).hostname;
-      img.addEventListener('error', function onFirst() {
-        img.removeEventListener('error', onFirst);
-        img.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
-        img.addEventListener('error', function onSecond() {
-          img.outerHTML = '<span class="favicon-fallback">✦</span>';
-        });
-      });
+    document.querySelectorAll("img.favicon").forEach(img => {
+      let attempts = 0;
+      let domain;
+      try { domain = new URL(img.src).hostname; } catch(e) { return; }
+      img.onerror = function() {
+        attempts++;
+        if (attempts === 1) {
+          img.src = "https://www.google.com/s2/favicons?domain=" + domain + "&sz=32";
+        } else {
+          img.onerror = null;
+          const span = document.createElement("span");
+          span.className = "favicon-fallback";
+          span.textContent = "✦";
+          img.parentNode.replaceChild(span, img);
+        }
+      };
     });
   </script>
 </body>
