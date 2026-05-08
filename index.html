@@ -234,6 +234,31 @@ h1 {
   }
 }
 
+/* ── Landscape mobile: icon-only row, no hamburger ── */
+@media (max-width: 719px) and (orientation: landscape) {
+  .ql-toggle { display: none !important; }
+  .quick-links {
+    display: flex !important;
+    position: static !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    width: auto !important;
+  }
+  .quick-links .quick-link {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+  .ql-label { display: none !important; }
+}
+
 /* ── Responsive grid ── */
 .sections-grid {
   display: grid;
