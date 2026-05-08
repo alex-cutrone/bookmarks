@@ -145,6 +145,15 @@ h1 {
   opacity: 1;
 }
 
+/* ── Quick link labels — hidden everywhere except open portrait dropdown ── */
+.ql-label {
+  display: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--green);
+  white-space: nowrap;
+}
+
 /* ── Hamburger button (mobile only) ── */
 .ql-toggle {
   display: none;
@@ -206,19 +215,7 @@ h1 {
     flex-shrink: 0;
   }
 
-  .ql-label {
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--green);
-    white-space: nowrap;
-    display: none;
-  }
 
-  @media (max-width: 719px) {
-    .quick-links.open .ql-label {
-      display: inline;
-    }
-  }
 
   /* hide desktop tooltip in dropdown */
   .quick-links .quick-link::after {
@@ -231,6 +228,10 @@ h1 {
 
   .ql-wrapper {
     position: relative;
+  }
+
+  .quick-links.open .ql-label {
+    display: inline;
   }
 }
 
@@ -395,10 +396,12 @@ footer {
   letter-spacing: 0.03em;
 }
 
+
   </style>
 </head>
 <body>
   <div class="container">
+
 
 <!-- PAGE HEADER -->
 <div class="page-header">
