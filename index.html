@@ -206,12 +206,20 @@ h1 {
     flex-shrink: 0;
   }
 
-  .quick-links .quick-link::before {
+  .quick-links .quick-link::after {
     content: attr(title);
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--green);
     white-space: nowrap;
+    opacity: 1;
+    position: static;
+    transform: none;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    bottom: auto;
+    left: auto;
   }
 
   /* hide tooltip on mobile */
@@ -363,7 +371,6 @@ footer {
   color: var(--muted);
   letter-spacing: 0.03em;
 }
-```
 
   </style>
 </head>
@@ -594,7 +601,6 @@ footer {
 </div><!-- /sections-grid -->
 
 <footer>Internal use only</footer>
-```
 
   </div>
 
