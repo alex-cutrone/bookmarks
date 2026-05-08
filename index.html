@@ -206,23 +206,21 @@ h1 {
     flex-shrink: 0;
   }
 
-  .quick-links .quick-link::after {
-    content: attr(title);
+  .ql-label {
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--green);
     white-space: nowrap;
-    opacity: 1;
-    position: static;
-    transform: none;
-    background: none;
-    padding: 0;
-    border-radius: 0;
-    bottom: auto;
-    left: auto;
+    display: none;
   }
 
-  /* hide tooltip on mobile */
+  @media (max-width: 719px) {
+    .quick-links.open .ql-label {
+      display: inline;
+    }
+  }
+
+  /* hide desktop tooltip in dropdown */
   .quick-links .quick-link::after {
     display: none;
   }
@@ -392,28 +390,28 @@ footer {
   <button class="ql-toggle" id="qlToggle" aria-label="Quick links">⊞</button>
   <div class="quick-links" id="quickLinks">
     <a class="quick-link" href="https://www.gmail.com" target="_blank" rel="noopener" title="Gmail">
-      <img src="gmail.jpeg" alt="Gmail">
+      <img src="gmail.jpeg" alt="Gmail"><span class="ql-label">Gmail</span>
     </a>
     <a class="quick-link" href="https://calendar.google.com/" target="_blank" rel="noopener" title="Google Calendar">
-      <img src="calendar.png" alt="Google Calendar">
+      <img src="calendar.png" alt="Google Calendar"><span class="ql-label">Google Calendar</span>
     </a>
     <a class="quick-link" href="https://drive.google.com/" target="_blank" rel="noopener" title="Google Drive">
-      <img src="drive.png" alt="Google Drive">
+      <img src="drive.png" alt="Google Drive"><span class="ql-label">Google Drive</span>
     </a>
     <a class="quick-link" href="https://app-eu1.hubspot.com/" target="_blank" rel="noopener" title="HubSpot">
-      <img src="hubspot.jpeg" alt="HubSpot">
+      <img src="hubspot.jpeg" alt="HubSpot"><span class="ql-label">HubSpot</span>
     </a>
     <a class="quick-link" href="https://app.asana.com/" target="_blank" rel="noopener" title="Asana">
-      <img src="asana.jpeg" alt="Asana">
+      <img src="asana.jpeg" alt="Asana"><span class="ql-label">Asana</span>
     </a>
     <a class="quick-link" href="https://app.sunsama.com/" target="_blank" rel="noopener" title="Sunsama">
-      <img src="sunsama.jpeg" alt="Sunsama">
+      <img src="sunsama.jpeg" alt="Sunsama"><span class="ql-label">Sunsama</span>
     </a>
     <a class="quick-link" href="https://youneedawiki.com/app/page/1rChtI49cKKO5KEo2XQJO7TuHUU5Q4BTH?p=1rChtI49cKKO5KEo2XQJO7TuHUU5Q4BTH" target="_blank" rel="noopener" title="You Need a Wiki">
-      <img src="YNAW.png" alt="You Need a Wiki">
+      <img src="YNAW.png" alt="You Need a Wiki"><span class="ql-label">You Need a Wiki</span>
     </a>
     <a class="quick-link" href="https://www.loom.com/looms" target="_blank" rel="noopener" title="Loom">
-      <img src="loom.jpeg" alt="Loom">
+      <img src="loom.jpeg" alt="Loom"><span class="ql-label">Loom</span>
     </a>
   </div>
   </div>
