@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,506 +10,613 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --green:       #212E1D;
-      --green-mid:   #374931;
-      --green-light: #708A67;
-      --gold:        #CD9B49;
-      --gold-dim:    rgba(205, 155, 73, 0.12);
-      --cream:       #FFF8EC;
-      --cream-dark:  #ECD5B0;
-      --text:        #212E1D;
-      --muted:       #708A67;
-    }
+```
+:root {
+  --green:       #212E1D;
+  --green-mid:   #374931;
+  --green-light: #708A67;
+  --gold:        #CD9B49;
+  --gold-dim:    rgba(205, 155, 73, 0.12);
+  --cream:       #FFF8EC;
+  --cream-dark:  #ECD5B0;
+  --text:        #212E1D;
+  --muted:       #708A67;
+}
 
-    body {
-      background: var(--cream);
-      color: var(--text);
-      font-family: 'Albert Sans', sans-serif;
-      min-height: 100vh;
-      padding: 3rem 2rem;
-    }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Albert Sans', sans-serif;
+  min-height: 100vh;
+  padding: 3rem 2rem;
+}
 
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-    /* ── Page header ── */
-    .page-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
+/* ── Page header ── */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
 
-    .page-header-left {
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-    }
+.page-header-left {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
 
-    .wordmark {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
 
-    .logo {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
+.logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
-    .brand-name {
-      font-family: 'Albert Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--green);
-      text-transform: uppercase;
-    }
+.brand-name {
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--green);
+  text-transform: uppercase;
+}
 
-    h1 {
-      font-family: 'Nanum Myeongjo', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--green);
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-    }
+h1 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--green);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
 
-    /* ── Quick links — single row, no wrapping ── */
-    .quick-links {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 0.4rem;
-      align-items: flex-start;
-      padding-top: 0.1rem;
-      flex-shrink: 0;
-    }
+/* ── Quick links — single row, no wrapping ── */
+.quick-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  align-items: flex-start;
+  padding-top: 0.1rem;
+  flex-shrink: 0;
+}
 
-    .quick-link {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 6px;
-      border: 1px solid var(--cream-dark);
-      background: white;
-      text-decoration: none;
-      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
+.quick-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--cream-dark);
+  background: white;
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+  overflow: hidden;
+  flex-shrink: 0;
+}
 
-    .quick-link:hover {
-      border-color: var(--gold);
-      background: var(--gold-dim);
-      box-shadow: 0 2px 6px rgba(33,46,29,0.08);
-    }
+.quick-link:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  box-shadow: 0 2px 6px rgba(33,46,29,0.08);
+}
 
-    .quick-link img {
-      width: 22px;
-      height: 22px;
-      object-fit: contain;
-      display: block;
-      border-radius: 3px;
-    }
+.quick-link img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+  border-radius: 3px;
+}
 
-    /* Tooltip */
-    .quick-link::after {
-      content: attr(title);
-      position: absolute;
-      bottom: -28px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--green);
-      color: var(--cream);
-      font-size: 0.62rem;
-      padding: 2px 6px;
-      border-radius: 3px;
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.15s;
-    }
+/* Tooltip */
+.quick-link::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: var(--cream);
+  font-size: 0.62rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
 
-    .quick-link:hover::after {
-      opacity: 1;
-    }
+.quick-link:hover::after {
+  opacity: 1;
+}
 
-    /* ── Responsive grid ── */
-    .sections-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
+/* ── Hamburger button (mobile only) ── */
+.ql-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--cream-dark);
+  background: white;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: var(--green);
+  font-size: 1.1rem;
+  line-height: 1;
+}
 
-    @media (min-width: 720px) {
-      .sections-grid {
-        grid-template-columns: repeat(3, 1fr);
-        align-items: start;
-      }
-    }
+.ql-toggle:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
 
-    /* ── Sections ── */
-    .section {
-      display: flex;
-      flex-direction: column;
-    }
+/* Mobile: hide row, show hamburger */
+@media (max-width: 719px) {
+  .quick-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background: white;
+    border: 1px solid var(--cream-dark);
+    border-radius: 8px;
+    padding: 0.5rem;
+    gap: 0.4rem;
+    box-shadow: 0 4px 16px rgba(33,46,29,0.1);
+    z-index: 100;
+    width: auto;
+  }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.75rem;
-    }
+  .quick-links.open {
+    display: flex;
+  }
 
-    .section-title {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
+  .quick-links .quick-link {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    padding: 0 0.75rem;
+    overflow: visible;
+  }
 
-    .section-rule {
-      flex: 1;
-      height: 1px;
-      background: var(--cream-dark);
-    }
+  .quick-links .quick-link img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
 
-    /* ── Link cards ── */
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
+  .quick-links .quick-link::before {
+    content: attr(title);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--green);
+    white-space: nowrap;
+  }
 
-    a.link-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 0.9rem;
-      background: white;
-      border: 1px solid var(--cream-dark);
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
-      gap: 0.5rem;
-    }
+  /* hide tooltip on mobile */
+  .quick-links .quick-link::after {
+    display: none;
+  }
 
-    a.link-card:hover {
-      border-color: var(--gold);
-      background: var(--gold-dim);
-      box-shadow: 0 2px 8px rgba(33, 46, 29, 0.06);
-    }
+  .ql-toggle {
+    display: flex;
+  }
 
-    a.link-card:hover .arrow {
-      color: var(--gold);
-      transform: translateX(3px);
-    }
+  .ql-wrapper {
+    position: relative;
+  }
+}
 
-    .link-left {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      min-width: 0;
-    }
+/* ── Responsive grid ── */
+.sections-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
 
-    .favicon {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-      border-radius: 2px;
-      object-fit: contain;
-    }
+@media (min-width: 720px) {
+  .sections-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+}
 
-    .favicon-fallback {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      color: var(--green);
-      line-height: 1;
-    }
+/* ── Sections ── */
+.section {
+  display: flex;
+  flex-direction: column;
+}
 
-    .link-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-      min-width: 0;
-    }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
 
-    .link-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--green);
-    }
+.section-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
 
-    .link-url {
-      font-size: 0.67rem;
-      color: var(--muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--cream-dark);
+}
 
-    .arrow {
-      font-size: 0.85rem;
-      color: var(--cream-dark);
-      flex-shrink: 0;
-      transition: color 0.15s, transform 0.15s;
-    }
+/* ── Link cards ── */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
 
-    footer {
-      margin-top: 2.5rem;
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.03em;
-    }
+a.link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.9rem;
+  background: white;
+  border: 1px solid var(--cream-dark);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  gap: 0.5rem;
+}
+
+a.link-card:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  box-shadow: 0 2px 8px rgba(33, 46, 29, 0.06);
+}
+
+a.link-card:hover .arrow {
+  color: var(--gold);
+  transform: translateX(3px);
+}
+
+.link-left {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.favicon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  object-fit: contain;
+}
+
+.favicon-fallback {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--green);
+  line-height: 1;
+}
+
+.link-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.link-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.link-url {
+  font-size: 0.67rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.arrow {
+  font-size: 0.85rem;
+  color: var(--cream-dark);
+  flex-shrink: 0;
+  transition: color 0.15s, transform 0.15s;
+}
+
+footer {
+  margin-top: 2.5rem;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+```
+
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- PAGE HEADER -->
-    <div class="page-header">
-      <div class="page-header-left">
-        <div class="wordmark">
-          <img src="logo.png" alt="Encore Pro" class="logo">
-          <span class="brand-name">Encore Pro</span>
-        </div>
-        <h1>Resources</h1>
-      </div>
-
-      <!-- Quick-link icon bar — single row -->
-      <div class="quick-links">
-        <a class="quick-link" href="https://www.gmail.com" target="_blank" rel="noopener" title="Gmail">
-          <img src="gmail.jpeg" alt="Gmail">
-        </a>
-        <a class="quick-link" href="https://calendar.google.com/" target="_blank" rel="noopener" title="Google Calendar">
-          <img src="calendar.png" alt="Google Calendar">
-        </a>
-        <a class="quick-link" href="https://drive.google.com/" target="_blank" rel="noopener" title="Google Drive">
-          <img src="drive.png" alt="Google Drive">
-        </a>
-        <a class="quick-link" href="https://app-eu1.hubspot.com/" target="_blank" rel="noopener" title="HubSpot">
-          <img src="hubspot.jpeg" alt="HubSpot">
-        </a>
-        <a class="quick-link" href="https://app.asana.com/" target="_blank" rel="noopener" title="Asana">
-          <img src="asana.jpeg" alt="Asana">
-        </a>
-        <a class="quick-link" href="https://app.sunsama.com/" target="_blank" rel="noopener" title="Sunsama">
-          <img src="sunsama.jpeg" alt="Sunsama">
-        </a>
-        <a class="quick-link" href="https://youneedawiki.com/app/page/1rChtI49cKKO5KEo2XQJO7TuHUU5Q4BTH?p=1rChtI49cKKO5KEo2XQJO7TuHUU5Q4BTH" target="_blank" rel="noopener" title="You Need a Wiki">
-          <img src="YNAW.png" alt="You Need a Wiki">
-        </a>
-        <a class="quick-link" href="https://www.loom.com/looms" target="_blank" rel="noopener" title="Loom">
-          <img src="loom.jpeg" alt="Loom">
-        </a>
-      </div>
+```
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-left">
+    <div class="wordmark">
+      <img src="logo.png" alt="Encore Pro" class="logo">
+      <span class="brand-name">Encore Pro</span>
     </div>
+    <h1>Resources</h1>
+  </div>
 
-    <!-- SECTIONS GRID -->
-    <div class="sections-grid">
+  <!-- Quick-link icon bar — hamburger on mobile, row on desktop -->
+  <div class="ql-wrapper">
+  <button class="ql-toggle" id="qlToggle" aria-label="Quick links">⊞</button>
+  <div class="quick-links" id="quickLinks">
+    <a class="quick-link" href="https://www.gmail.com" target="_blank" rel="noopener" title="Gmail">
+      <img src="gmail.jpeg" alt="Gmail">
+    </a>
+    <a class="quick-link" href="https://calendar.google.com/" target="_blank" rel="noopener" title="Google Calendar">
+      <img src="calendar.png" alt="Google Calendar">
+    </a>
+    <a class="quick-link" href="https://drive.google.com/" target="_blank" rel="noopener" title="Google Drive">
+      <img src="drive.png" alt="Google Drive">
+    </a>
+    <a class="quick-link" href="https://app-eu1.hubspot.com/" target="_blank" rel="noopener" title="HubSpot">
+      <img src="hubspot.jpeg" alt="HubSpot">
+    </a>
+    <a class="quick-link" href="https://app.asana.com/" target="_blank" rel="noopener" title="Asana">
+      <img src="asana.jpeg" alt="Asana">
+    </a>
+    <a class="quick-link" href="https://app.sunsama.com/" target="_blank" rel="noopener" title="Sunsama">
+      <img src="sunsama.jpeg" alt="Sunsama">
+    </a>
+    <a class="quick-link" href="https://youneedawiki.com/app/page/1rChtI49cKKO5KEo2XQJO7TuHUU5Q4BTH?p=1rChtI49cKKO5KEo2XQJO7TuHUU5Q4BTH" target="_blank" rel="noopener" title="You Need a Wiki">
+      <img src="YNAW.png" alt="You Need a Wiki">
+    </a>
+    <a class="quick-link" href="https://www.loom.com/looms" target="_blank" rel="noopener" title="Loom">
+      <img src="loom.jpeg" alt="Loom">
+    </a>
+  </div>
+  </div>
+</div>
 
-      <!-- ADMIN SPACES -->
-      <div class="section">
-        <div class="section-header">
-          <span class="section-title">Admin Spaces</span>
-          <div class="section-rule"></div>
+<!-- SECTIONS GRID -->
+<div class="sections-grid">
+
+  <!-- ADMIN SPACES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Admin Spaces</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="links">
+
+      <a class="link-card" href="https://eu.exchange.activitystream.com/admin" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="https://eu.exchange.activitystream.com/favicon.ico" alt="">
+          <div class="link-info">
+            <span class="link-name">Exchange</span>
+            <span class="link-url">eu.exchange.activitystream.com</span>
+          </div>
         </div>
-        <div class="links">
+        <span class="arrow">→</span>
+      </a>
 
-          <a class="link-card" href="https://eu.exchange.activitystream.com/admin" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="https://eu.exchange.activitystream.com/favicon.ico" alt="">
-              <div class="link-info">
-                <span class="link-name">Exchange</span>
-                <span class="link-url">eu.exchange.activitystream.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
-          <a class="link-card" href="https://app.crowdengage.com/admin/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="crowdengage.jpeg" alt="">
-              <div class="link-info">
-                <span class="link-name">crowdEngage</span>
-                <span class="link-url">app.crowdengage.com/admin/</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
-          <a class="link-card" href="https://provisioning.encorepro.com/admin/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <span class="favicon-fallback">✦</span>
-              <div class="link-info">
-                <span class="link-name">Provisioning</span>
-                <span class="link-url">provisioning.encorepro.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
-          <a class="link-card" href="https://us1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <span class="favicon-fallback">✦</span>
-              <div class="link-info">
-                <span class="link-name">Encore Pro — US</span>
-                <span class="link-url">us1.admin.encorepro.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
-          <a class="link-card" href="https://eu1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <span class="favicon-fallback">✦</span>
-              <div class="link-info">
-                <span class="link-name">Encore Pro — EU</span>
-                <span class="link-url">eu1.admin.encorepro.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
+      <a class="link-card" href="https://app.crowdengage.com/admin/" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="crowdengage.jpeg" alt="">
+          <div class="link-info">
+            <span class="link-name">crowdEngage</span>
+            <span class="link-url">app.crowdengage.com/admin/</span>
+          </div>
         </div>
-      </div>
+        <span class="arrow">→</span>
+      </a>
 
-      <!-- PLATFORM TOOLS -->
-      <div class="section">
-        <div class="section-header">
-          <span class="section-title">Platform Tools</span>
-          <div class="section-rule"></div>
+      <a class="link-card" href="https://provisioning.encorepro.com/admin/" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="favicon-fallback">✦</span>
+          <div class="link-info">
+            <span class="link-name">Provisioning</span>
+            <span class="link-url">provisioning.encorepro.com</span>
+          </div>
         </div>
-        <div class="links">
+        <span class="arrow">→</span>
+      </a>
 
-          <a class="link-card" href="https://app.propelauth.com/proj/bbd74220-c424-4338-a528-33d0fb68be49" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="propel.jpeg" alt="">
-              <div class="link-info">
-                <span class="link-name">PropelAuth</span>
-                <span class="link-url">app.propelauth.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
-          <a class="link-card" href="https://app.eu.sparkpost.com/landing" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="https://app.eu.sparkpost.com/favicon.ico" alt="">
-              <div class="link-info">
-                <span class="link-name">SparkPost</span>
-                <span class="link-url">app.eu.sparkpost.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
-          <a class="link-card" href="https://github.com/crowdengage/operations-tasks/issues/new/choose" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="https://github.com/favicon.ico" alt="">
-              <div class="link-info">
-                <span class="link-name">Operations Tasks</span>
-                <span class="link-url">github.com/crowdengage</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
-          <a class="link-card" href="https://console.twilio.com/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="https://console.twilio.com/favicon.ico" alt="">
-              <div class="link-info">
-                <span class="link-name">Twilio</span>
-                <span class="link-url">console.twilio.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
-          <a class="link-card" href="https://manage.auth0.com/dashboard/eu/activitystream-v2/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="Auth.png" alt="">
-              <div class="link-info">
-                <span class="link-name">Auth0</span>
-                <span class="link-url">manage.auth0.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
+      <a class="link-card" href="https://us1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="favicon-fallback">✦</span>
+          <div class="link-info">
+            <span class="link-name">Encore Pro — US</span>
+            <span class="link-url">us1.admin.encorepro.com</span>
+          </div>
         </div>
-      </div>
+        <span class="arrow">→</span>
+      </a>
 
-      <!-- TENANTS -->
-      <div class="section">
-        <div class="section-header">
-          <span class="section-title">Tenants</span>
-          <div class="section-rule"></div>
+      <a class="link-card" href="https://eu1.admin.encorepro.com/admin/" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="favicon-fallback">✦</span>
+          <div class="link-info">
+            <span class="link-name">Encore Pro — EU</span>
+            <span class="link-url">eu1.admin.encorepro.com</span>
+          </div>
         </div>
-        <div class="links">
+        <span class="arrow">→</span>
+      </a>
 
-          <a class="link-card" href="https://app.encorepro.com/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="https://app.encorepro.com/favicon.ico" alt="">
-              <div class="link-info">
-                <span class="link-name">Encore Pro</span>
-                <span class="link-url">app.encorepro.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
+    </div>
+  </div>
 
-          <a class="link-card" href="https://app.crowdengage.com/" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="crowdengage.jpeg" alt="">
-              <div class="link-info">
-                <span class="link-name">crowdEngage</span>
-                <span class="link-url">app.crowdengage.com</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
+  <!-- PLATFORM TOOLS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Platform Tools</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="links">
 
-          <a class="link-card" href="https://as.yesplan.be/Yesplan?_s=bdH7s4rIcEzgJMc4&_k=bduMLRrbeVqVfoLT" target="_blank" rel="noopener">
-            <div class="link-left">
-              <img class="favicon" src="https://as.yesplan.be/favicon.ico" alt="">
-              <div class="link-info">
-                <span class="link-name">Yesplan</span>
-                <span class="link-url">as.yesplan.be</span>
-              </div>
-            </div>
-            <span class="arrow">→</span>
-          </a>
-
+      <a class="link-card" href="https://app.propelauth.com/proj/bbd74220-c424-4338-a528-33d0fb68be49" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="propel.jpeg" alt="">
+          <div class="link-info">
+            <span class="link-name">PropelAuth</span>
+            <span class="link-url">app.propelauth.com</span>
+          </div>
         </div>
-      </div>
+        <span class="arrow">→</span>
+      </a>
 
-    </div><!-- /sections-grid -->
+      <a class="link-card" href="https://app.eu.sparkpost.com/landing" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="https://app.eu.sparkpost.com/favicon.ico" alt="">
+          <div class="link-info">
+            <span class="link-name">SparkPost</span>
+            <span class="link-url">app.eu.sparkpost.com</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-    <footer>Internal use only</footer>
+      <a class="link-card" href="https://github.com/crowdengage/operations-tasks/issues/new/choose" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="https://github.com/favicon.ico" alt="">
+          <div class="link-info">
+            <span class="link-name">Operations Tasks</span>
+            <span class="link-url">github.com/crowdengage</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://console.twilio.com/" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="https://console.twilio.com/favicon.ico" alt="">
+          <div class="link-info">
+            <span class="link-name">Twilio</span>
+            <span class="link-url">console.twilio.com</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://manage.auth0.com/dashboard/eu/activitystream-v2/" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="Auth.png" alt="">
+          <div class="link-info">
+            <span class="link-name">Auth0</span>
+            <span class="link-url">manage.auth0.com</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- TENANTS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Tenants</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="links">
+
+      <a class="link-card" href="https://app.encorepro.com/" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="https://app.encorepro.com/favicon.ico" alt="">
+          <div class="link-info">
+            <span class="link-name">Encore Pro</span>
+            <span class="link-url">app.encorepro.com</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://app.crowdengage.com/" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="crowdengage.jpeg" alt="">
+          <div class="link-info">
+            <span class="link-name">crowdEngage</span>
+            <span class="link-url">app.crowdengage.com</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://as.yesplan.be/Yesplan?_s=bdH7s4rIcEzgJMc4&_k=bduMLRrbeVqVfoLT" target="_blank" rel="noopener">
+        <div class="link-left">
+          <img class="favicon" src="https://as.yesplan.be/favicon.ico" alt="">
+          <div class="link-info">
+            <span class="link-name">Yesplan</span>
+            <span class="link-url">as.yesplan.be</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+
+</div><!-- /sections-grid -->
+
+<footer>Internal use only</footer>
+```
 
   </div>
 
   <script>
+    // Hamburger toggle
+    const toggle = document.getElementById('qlToggle');
+    const ql = document.getElementById('quickLinks');
+    if (toggle && ql) {
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        ql.classList.toggle('open');
+      });
+      document.addEventListener('click', function() {
+        ql.classList.remove('open');
+      });
+      ql.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+
     function replaceWithDiamond(img) {
       const span = document.createElement("span");
       span.className = "favicon-fallback";
@@ -543,5 +651,6 @@
       };
     });
   </script>
+
 </body>
 </html>
